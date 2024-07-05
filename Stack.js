@@ -16433,7 +16433,7 @@ const Carousel = ({ videos, campaigns }) => {
       carousel.removeEventListener("scroll", updateNavButtons);
     };
   }, []);
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("style", { children: `
 
 
@@ -16711,6 +16711,7 @@ const Carousel = ({ videos, campaigns }) => {
   position: relative;
   top:0vh;
   color: white;
+  margin-top: 4px;
 }
 
 .down-arrow123 {
@@ -16749,7 +16750,7 @@ const Carousel = ({ videos, campaigns }) => {
   scroll-behavior: smooth; /* Smooth scrolling */
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
-  height:408px;
+  {/* height:408px; */}
 
 }
 
@@ -17322,7 +17323,7 @@ const Carousel = ({ videos, campaigns }) => {
         onClose: handleClosePopup
       }
     )
-  ] });
+  ] }) });
 };
 const Popup = ({ campaigns, currentIndex, onClose }) => {
   const [currentCampaignIndex, setCurrentCampaignIndex] = reactExports.useState(currentIndex);
