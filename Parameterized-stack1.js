@@ -16497,7 +16497,7 @@ const Carousel = ({ videos, campaigns }) => {
   transition-property: transform;
   transition-timing-function: var(--swiper-wrapper-transition-timing-function, initial);
   box-sizing: content-box;
-  width: 115px;
+  width: 160px;
 }
 .swiper-android .swiper-slide,
 .swiper-ios .swiper-slide,
