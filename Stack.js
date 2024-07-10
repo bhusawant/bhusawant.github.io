@@ -16497,7 +16497,7 @@ const Carousel = ({ videos, campaigns }) => {
   transition-property: transform;
   transition-timing-function: var(--swiper-wrapper-transition-timing-function, initial);
   box-sizing: content-box;
-  width: 115px;
+  width: 160px;
 }
 .swiper-android .swiper-slide,
 .swiper-ios .swiper-slide,
@@ -16976,7 +16976,7 @@ const Carousel = ({ videos, campaigns }) => {
   position: relative;
   color:black;
   top:1vh;
-  
+  width: 126px;
   padding-left: 0vh;
   font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
   font-size: 1.8vh;
@@ -17229,6 +17229,7 @@ const Carousel = ({ videos, campaigns }) => {
     padding-left: 0vh;
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
     font-size: 1.8vh;
+    width: 126px;
   }
   
   .view-more123{
@@ -17324,6 +17325,34 @@ const Carousel = ({ videos, campaigns }) => {
       }
     )
   ] }) });
+};
+const App = () => {
+  const [videos, setVideos] = reactExports.useState([]);
+  const [campaigns, setCampaigns] = reactExports.useState([]);
+  reactExports.useEffect(() => {
+    const rootElement = document.getElementById("root");
+    const campaignId = rootElement.dataset.campaignId;
+    const fetchVideoData = async (campaignId2) => {
+      try {
+        const response = await fetch(`https://www.tripbuilder.in/php/shoppable.php/getCampaignsForHotel/${campaignId2}`);
+        const data = await response.json();
+        const videos2 = data.campaigns.map((campaign) => campaign.videoId[0]);
+        setVideos(videos2);
+        setCampaigns(data.campaigns);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    if (campaignId) {
+      fetchVideoData(campaignId);
+    } else {
+      console.error("No campaign ID found");
+    }
+  }, []);
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "App", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Carousel, { videos, campaigns }),
+    " "
+  ] });
 };
 const Popup = ({ campaigns, currentIndex, onClose }) => {
   const [currentCampaignIndex, setCurrentCampaignIndex] = reactExports.useState(currentIndex);
@@ -17440,9 +17469,6 @@ const Popup = ({ campaigns, currentIndex, onClose }) => {
   const truncateText = (text) => {
     const words = text.split("\n");
     const truncatedText = words.slice(0, 2).join(" ");
-    if (words.length > 3) {
-      return `${truncatedText}...`;
-    }
     return truncatedText;
   };
   const requestFullScreen = () => {
@@ -17487,6 +17513,10 @@ const Popup = ({ campaigns, currentIndex, onClose }) => {
   reactExports.useEffect(() => {
     setCurrentVideoIndex(0);
   }, [currentCampaignIndex]);
+  const hasMoreThanTwoLines = (text) => {
+    const words = text.split("\n");
+    return words.length > 2;
+  };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { ref: popupRef, className: "whole123", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "prevbtn123", onClick: handlePreviousCampaign, children: /* @__PURE__ */ jsxRuntimeExports.jsx(FontAwesomeIcon, { icon: faCircleChevronLeft }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "closediv123", children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "closebtn123", onClick: onClose, children: /* @__PURE__ */ jsxRuntimeExports.jsx(FontAwesomeIcon, { icon: faTimes }) }) }),
@@ -17534,7 +17564,7 @@ const Popup = ({ campaigns, currentIndex, onClose }) => {
           /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "offer", children: [
             showFullText ? campaigns[currentCampaignIndex].campaignDetails : truncateText(campaigns[currentCampaignIndex].campaignDetails),
             /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "view-more123", onClick: toggleText, children: showFullText ? " View Less" : " View More" })
+            hasMoreThanTwoLines(campaigns[currentCampaignIndex].campaignDetails) && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "view-more123", onClick: toggleText, children: showFullText ? " View Less" : " View More" })
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "offerprice", children: [
             "From ",
@@ -17546,30 +17576,6 @@ const Popup = ({ campaigns, currentIndex, onClose }) => {
       ] })
     ] }, index)) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "nextbtn123", onClick: handleNextCampaign, children: /* @__PURE__ */ jsxRuntimeExports.jsx(FontAwesomeIcon, { icon: faCircleChevronRight }) })
-  ] });
-};
-const App = () => {
-  const [videos, setVideos] = reactExports.useState([]);
-  const [campaigns, setCampaigns] = reactExports.useState([]);
-  reactExports.useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    urlParams.get("campaign_id");
-    const fetchVideoData = async (campaignId2) => {
-      try {
-        const response = await fetch(`https://www.tripbuilder.in/php/shoppable.php/getCampaignsForHotel/24c5e580-0291-1fb8-b7ef-97cd6d3971a2`);
-        const data = await response.json();
-        const videos2 = data.campaigns.map((campaign) => campaign.videoId[0]);
-        setVideos(videos2);
-        setCampaigns(data.campaigns);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    fetchVideoData();
-  }, []);
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "App", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Carousel, { videos, campaigns }),
-    " "
   ] });
 };
 client.createRoot(document.getElementById("root")).render(
