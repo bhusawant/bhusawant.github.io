@@ -16915,14 +16915,33 @@ const Carousel = ({ videos, campaigns }) => {
 }
 
 .img {
-  position: absolute;
-  top: 50%; /* Move the div to the center horizontally */
+  {/* position: absolute;
+  top: 50%; 
   transform: translateY(-50%);
   left: 4%;
   width: 22%;
   height:80%;
-  border-radius: 10px;
+  border-radius: 10px; */}
+
+    display: flex;
+    top: 50%;
+    transform: translateY(16%);
+    left: 4%;
+    width: 100%;
+    margin-left: 10px;
+    height: 100%;
+    border-radius: 10px;
 }
+
+
+.img1 {
+ flex: 0 0 22%;
+    display: flex;
+    height: 12vh;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .divbtn123{
   width:20vh;
@@ -16954,32 +16973,55 @@ const Carousel = ({ videos, campaigns }) => {
 }
 
 .text{
-  display: block;
+  {/* display: block;
   position: relative;
   
   cursor: pointer;
   width:45%;
-  right:-15vh;
+  right:-15vh; */}
+
+    display: block;
+    position: relative;
+    cursor: pointer;
+    width: 45%;
+    right: -3vh;
 }
 
 .hotelname123 {
-  position: relative;
+  {/* position: relative;
   top: 1vh;
   color:black;
   padding-left: 0vh;
   font-weight: bolder;
   font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+  font-size: 2.2vh; */}
+
+
+  display: flex;
+  color: black;
+  margin-top: 8px;
+  padding: 0px;
+  font-weight: bolder;
+  font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
   font-size: 2.2vh;
+  flex-direction: column;
 }
 
 .offer {
-  position: relative;
-  color:black;
-  top:1vh;
-  width: 126px;
-  padding-left: 0vh;
-  font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
-  font-size: 1.8vh;
+    {/* display: flex;
+    color: black;
+    width: 126px;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    font-size: 1.8vh;
+    flex-direction: column; */}
+
+    color: black;
+    width: 126px;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    margin: -18px 0px;
+    font-size: 1.8vh;
+    margin-top: -11px;
+    flex-direction: column;
 }
 
 .view-more123{
@@ -17205,11 +17247,17 @@ const Carousel = ({ videos, campaigns }) => {
   }
   
   .text{
-    display: block;
+    {/* display: block;
     position: relative;
     cursor: pointer;
     width:40%;
-    right:-15vh;
+    right:-15vh; */}
+
+    display: block;
+    position: relative;
+    cursor: pointer;
+    width: 45%;
+    right: -3vh;
   }
   
   .hotelname123 {
@@ -17558,7 +17606,8 @@ const Popup = ({ campaigns, currentIndex, onClose }) => {
         }
       ) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bookdiv123", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("img", { className: "img", src: campaigns[currentCampaignIndex].campaignPhoto, alt: "Campaign" }),
+        "\\",
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "img1", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { className: "img", src: campaigns[currentCampaignIndex].campaignPhoto, alt: "Campaign" }) }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "hotelname123", children: campaigns[currentCampaignIndex].campaignName }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "offer", children: [
