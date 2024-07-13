@@ -10436,11 +10436,6 @@ var faCircleChevronRight = {
   iconName: "circle-chevron-right",
   icon: [512, 512, ["chevron-circle-right"], "f138", "M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM241 377c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l87-87-87-87c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L345 239c9.4 9.4 9.4 24.6 0 33.9L241 377z"]
 };
-var faAnglesDown = {
-  prefix: "fas",
-  iconName: "angles-down",
-  icon: [448, 512, ["angle-double-down"], "f103", "M246.6 470.6c-12.5 12.5-32.8 12.5-45.3 0l-160-160c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L224 402.7 361.4 265.4c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3l-160 160zm160-352l-160 160c-12.5 12.5-32.8 12.5-45.3 0l-160-160c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L224 210.7 361.4 73.4c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3z"]
-};
 var faVolumeHigh = {
   prefix: "fas",
   iconName: "volume-high",
@@ -17064,6 +17059,7 @@ const Carousel = ({ videos, campaigns }) => {
 }
 
 
+
 /* Mobile responsive */
 @media (max-width: 450px) {
 
@@ -17593,8 +17589,7 @@ const Popup = ({ campaigns, currentIndex, onClose }) => {
             onLoadedMetadata: (e) => handleLoadedMetadata(index, e.target)
           }
         ),
-        isVideoPaused && /* @__PURE__ */ jsxRuntimeExports.jsx(FontAwesomeIcon, { icon: faPlay, onClick: () => handleVideoClick(index), className: "play-button123" }),
-        index === 0 && showArrowIcon && /* @__PURE__ */ jsxRuntimeExports.jsx(FontAwesomeIcon, { icon: faAnglesDown, bounce: true, className: "down-arrow123" })
+        isVideoPaused && /* @__PURE__ */ jsxRuntimeExports.jsx(FontAwesomeIcon, { icon: faPlay, onClick: () => handleVideoClick(index), className: "play-button123" })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "functions", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
         FontAwesomeIcon,
@@ -17606,7 +17601,6 @@ const Popup = ({ campaigns, currentIndex, onClose }) => {
         }
       ) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bookdiv123", children: [
-        "\\",
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "img1", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { className: "img", src: campaigns[currentCampaignIndex].campaignPhoto, alt: "Campaign" }) }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "hotelname123", children: campaigns[currentCampaignIndex].campaignName }),
@@ -17621,7 +17615,7 @@ const Popup = ({ campaigns, currentIndex, onClose }) => {
             campaigns[currentCampaignIndex].offerPrice.price
           ] })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "divbtn123", children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://app.tripbuilder.in/", target: "_blank", rel: "noopener noreferrer", className: "bookbtn123", children: "Book" }) })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "divbtn123", children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: campaigns[currentCampaignIndex].campaignLink, target: "_blank", rel: "noopener noreferrer", className: "bookbtn123", children: "Book" }) })
       ] })
     ] }, index)) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "nextbtn123", onClick: handleNextCampaign, children: /* @__PURE__ */ jsxRuntimeExports.jsx(FontAwesomeIcon, { icon: faCircleChevronRight }) })
