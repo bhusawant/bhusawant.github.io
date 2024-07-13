@@ -17011,7 +17011,7 @@ const Carousel = ({ videos, campaigns }) => {
     flex-direction: column; */}
 
     color: black;
-    width: 126px;
+    width: 138px;
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
     margin: -18px 0px;
     font-size: 1.8vh;
@@ -17056,6 +17056,11 @@ const Carousel = ({ videos, campaigns }) => {
   cursor: pointer; /* Add pointer cursor */
   z-index: 1000;
   outline: none; /* Remove focus outline */
+}
+
+
+.pre-wrap {
+  white-space: pre-wrap;
 }
 
 
@@ -17604,7 +17609,7 @@ const Popup = ({ campaigns, currentIndex, onClose }) => {
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "img1", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { className: "img", src: campaigns[currentCampaignIndex].campaignPhoto, alt: "Campaign" }) }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "hotelname123", children: campaigns[currentCampaignIndex].campaignName }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "offer", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "offer pre-wrap", children: [
             showFullText ? campaigns[currentCampaignIndex].campaignDetails : truncateText(campaigns[currentCampaignIndex].campaignDetails),
             /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
             hasMoreThanTwoLines(campaigns[currentCampaignIndex].campaignDetails) && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "view-more123", onClick: toggleText, children: showFullText ? " View Less" : " View More" })
