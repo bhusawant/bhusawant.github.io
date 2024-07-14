@@ -17432,7 +17432,11 @@ const App = () => {
   const [videos, setVideos] = reactExports.useState([]);
   const [campaigns, setCampaigns] = reactExports.useState([]);
   reactExports.useEffect(() => {
-    window.scrollTo(0, 1);
+    window.addEventListener("load", function() {
+      setTimeout(function() {
+        window.scrollTo(0, 1);
+      }, 0);
+    });
     const rootElement = document.getElementById("root");
     const campaignId = rootElement.dataset.campaignId;
     const fetchVideoData = async (campaignId2) => {
