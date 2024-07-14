@@ -17432,6 +17432,7 @@ const App = () => {
   const [videos, setVideos] = reactExports.useState([]);
   const [campaigns, setCampaigns] = reactExports.useState([]);
   reactExports.useEffect(() => {
+    window.scrollTo(0, 1);
     const rootElement = document.getElementById("root");
     const campaignId = rootElement.dataset.campaignId;
     const fetchVideoData = async (campaignId2) => {
