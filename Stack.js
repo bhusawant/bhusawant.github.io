@@ -16995,6 +16995,7 @@ const Carousel = ({ videos, campaigns }) => {
   display: flex;
   color: black;
   margin-top: 8px;
+  margin-bottom: 10px;
   padding: 0px;
   font-weight: bolder;
   font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
@@ -17209,13 +17210,23 @@ const Carousel = ({ videos, campaigns }) => {
   }
   
   .img {
-    position: absolute;
-    top: 50%; /* Move the div to the center horizontally */
+    {/* position: absolute;
+    top: 50%; 
     transform: translateY(-50%);
     left: 4%;
     width: 22%;
     height:80%;
-    border-radius: 10px;
+    border-radius: 10px; */}
+
+
+        top: 50%;
+        left: 4%;
+        border-radius: 10px;
+        display: flex;
+        transform: translateY(11%);
+        width: 100%;
+        margin-left: 10px;
+        height: 100%;
   }
   
   .divbtn123{
@@ -17258,7 +17269,7 @@ const Carousel = ({ videos, campaigns }) => {
     position: relative;
     cursor: pointer;
     width: 45%;
-    right: -3vh;
+    right: -5vh;
   }
   
   .hotelname123 {
@@ -17269,6 +17280,7 @@ const Carousel = ({ videos, campaigns }) => {
     font-weight: 700;
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
     font-size: 2.2vh;
+    margin-top: 0px;
   }
   
   .offer {
@@ -17277,7 +17289,7 @@ const Carousel = ({ videos, campaigns }) => {
     top:1vh;
     padding-left: 0vh;
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
-    font-size: 1.8vh;
+    font-size: 1.6vh;
     width: 126px;
   }
   
@@ -17297,6 +17309,8 @@ const Carousel = ({ videos, campaigns }) => {
     font-weight: bold;
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
     font-size: 2vh;
+    margin-top: 25px;
+    margin-bottom: 0px;
   }
 
   .volume123 {
