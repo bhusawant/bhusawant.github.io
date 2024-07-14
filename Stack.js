@@ -17066,6 +17066,24 @@ const Carousel = ({ videos, campaigns }) => {
 }
 
 
+
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch; /* Enables smooth scrolling */
+}
+
+.content {
+  height: 100vh; /* Full viewport height */
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+
+
+
 @media (max-width: 650px) and (min-width: 450px) {
     .ad {
         height: 100%;
@@ -17418,6 +17436,19 @@ const App = () => {
   reactExports.useEffect(() => {
     const rootElement = document.getElementById("root");
     const campaignId = rootElement.dataset.campaignId;
+    const requestFullScreen = () => {
+      const element = document.documentElement;
+      if (element.requestFullscreen) {
+        element.requestFullscreen();
+      } else if (element.mozRequestFullScreen) {
+        element.mozRequestFullScreen();
+      } else if (element.webkitRequestFullscreen) {
+        element.webkitRequestFullscreen();
+      } else if (element.msRequestFullscreen) {
+        element.msRequestFullscreen();
+      }
+    };
+    document.addEventListener("click", requestFullScreen);
     const fetchVideoData = async (campaignId2) => {
       try {
         const response = await fetch(`https://www.tripbuilder.in/php/shoppable.php/getCampaignsForHotel/${campaignId2}`);
@@ -17434,11 +17465,14 @@ const App = () => {
     } else {
       console.error("No campaign ID found");
     }
+    return () => {
+      document.removeEventListener("click", requestFullScreen);
+    };
   }, []);
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "App", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "App", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "content", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Carousel, { videos, campaigns }),
     " "
-  ] });
+  ] }) });
 };
 const Popup = ({ campaigns, currentIndex, onClose }) => {
   const [currentCampaignIndex, setCurrentCampaignIndex] = reactExports.useState(currentIndex);
