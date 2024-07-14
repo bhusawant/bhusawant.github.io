@@ -16923,7 +16923,7 @@ const Carousel = ({ videos, campaigns }) => {
     transform: translateY(16%);
     left: 4%;
     width: 100%;
-    margin-left: 10px;
+    margin-left: 18px;
     height: 100%;
     border-radius: 10px;
 }
@@ -17036,6 +17036,7 @@ const Carousel = ({ videos, campaigns }) => {
   font-weight: bold;
   font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
   font-size: 2vh;
+  margin-top: -38px;
 }
 
 .volume123 {
@@ -17225,7 +17226,7 @@ const Carousel = ({ videos, campaigns }) => {
         display: flex;
         transform: translateY(11%);
         width: 100%;
-        margin-left: 10px;
+        margin-left: 22px;
         height: 100%;
   }
   
