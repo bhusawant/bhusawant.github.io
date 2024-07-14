@@ -17066,6 +17066,28 @@ const Carousel = ({ videos, campaigns }) => {
 }
 
 
+@media (max-width: 650px) and (min-width: 450px) {
+    .ad {
+        height: 100%;
+        width: 100%;
+        object-fit: fill;
+        border-radius: 10px;
+        position: absolute;
+        justify-content: center;
+    }
+
+    .bookdiv123 {
+        position: absolute;
+        bottom: 1.5%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        min-height: 15vh;
+        background-color: rgba(255, 255, 255, 0.863);
+        border-radius: 10px;
+        display: flex;
+    }
+}
 
 /* Mobile responsive */
 @media (max-width: 450px) {
