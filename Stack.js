@@ -17451,10 +17451,10 @@ const App = () => {
       console.error("No campaign ID found");
     }
   }, []);
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "App", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "content", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "App", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Carousel, { videos, campaigns }),
     " "
-  ] }) });
+  ] });
 };
 const Popup = ({ campaigns, currentIndex, onClose }) => {
   const [currentCampaignIndex, setCurrentCampaignIndex] = reactExports.useState(currentIndex);
