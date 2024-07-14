@@ -17428,6 +17428,34 @@ html, body {
     )
   ] }) });
 };
+const App = () => {
+  const [videos, setVideos] = reactExports.useState([]);
+  const [campaigns, setCampaigns] = reactExports.useState([]);
+  reactExports.useEffect(() => {
+    const rootElement = document.getElementById("root");
+    const campaignId = rootElement.dataset.campaignId;
+    const fetchVideoData = async (campaignId2) => {
+      try {
+        const response = await fetch(`https://www.tripbuilder.in/php/shoppable.php/getCampaignsForHotel/${campaignId2}`);
+        const data = await response.json();
+        const videos2 = data.campaigns.map((campaign) => campaign.videoId[0]);
+        setVideos(videos2);
+        setCampaigns(data.campaigns);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    if (campaignId) {
+      fetchVideoData(campaignId);
+    } else {
+      console.error("No campaign ID found");
+    }
+  }, []);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "App", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "content", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Carousel, { videos, campaigns }),
+    " "
+  ] }) });
+};
 const Popup = ({ campaigns, currentIndex, onClose }) => {
   const [currentCampaignIndex, setCurrentCampaignIndex] = reactExports.useState(currentIndex);
   const [currentVideoIndex, setCurrentVideoIndex] = reactExports.useState(0);
@@ -17650,31 +17678,6 @@ const Popup = ({ campaigns, currentIndex, onClose }) => {
     ] }, index)) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "nextbtn123", onClick: handleNextCampaign, children: /* @__PURE__ */ jsxRuntimeExports.jsx(FontAwesomeIcon, { icon: faCircleChevronRight }) })
   ] });
-};
-const App = () => {
-  const [videos, setVideos] = reactExports.useState([]);
-  const [campaigns, setCampaigns] = reactExports.useState([]);
-  reactExports.useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const campaignId = urlParams.get("campaign_id");
-    urlParams.get("campaignLink");
-    const fetchVideoData = async (campaignId2) => {
-      try {
-        const response = await fetch(`https://www.tripbuilder.in/php/shoppable.php/getCampaignsForHotel/${campaignId2}`);
-        const data = await response.json();
-        const videos2 = data.campaigns.map((campaign) => campaign.videoId[0]);
-        setVideos(videos2);
-        setCampaigns(data.campaigns);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    fetchVideoData(campaignId);
-  }, []);
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "App", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "content", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Carousel, { videos, campaigns }),
-    " "
-  ] }) });
 };
 client.createRoot(document.getElementById("root")).render(
   /* @__PURE__ */ jsxRuntimeExports.jsx(React.StrictMode, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(App, {}) })
