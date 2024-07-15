@@ -17069,13 +17069,22 @@ const Carousel = ({ videos, campaigns }) => {
 
 /* Add this to your CSS file */
 html, body {
+  height: 100%;
   margin: 0;
-  -webkit-overflow-scrolling: touch; /* Enables smooth scrolling */
+  padding: 0;
+  overflow: hidden;
 }
 
 .content {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
+}
+
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 
