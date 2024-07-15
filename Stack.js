@@ -17446,21 +17446,14 @@ const App = () => {
         window.scrollTo(0, 1);
       }
     };
-    const forceScroll = () => {
-      setTimeout(() => {
-        window.scrollTo(0, 1);
-      }, 0);
-    };
     window.addEventListener("load", hideAddressBar);
     window.addEventListener("orientationchange", hideAddressBar);
-    window.addEventListener("load", forceScroll);
-    window.addEventListener("resize", forceScroll);
+    window.addEventListener("resize", hideAddressBar);
     const timeoutId = setTimeout(hideAddressBar, 1e3);
     return () => {
       window.removeEventListener("load", hideAddressBar);
       window.removeEventListener("orientationchange", hideAddressBar);
-      window.removeEventListener("load", forceScroll);
-      window.removeEventListener("resize", forceScroll);
+      window.removeEventListener("resize", hideAddressBar);
       clearTimeout(timeoutId);
     };
   }, []);
