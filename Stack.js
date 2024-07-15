@@ -17437,12 +17437,22 @@ const App = () => {
         window.scrollTo(0, 1);
       }
     };
+    const forceScroll = () => {
+      setTimeout(() => {
+        window.scrollTo(0, 1);
+      }, 0);
+    };
     window.addEventListener("load", hideAddressBar);
     window.addEventListener("orientationchange", hideAddressBar);
-    setTimeout(hideAddressBar, 1e3);
+    window.addEventListener("load", forceScroll);
+    window.addEventListener("resize", forceScroll);
+    const timeoutId = setTimeout(hideAddressBar, 1e3);
     return () => {
       window.removeEventListener("load", hideAddressBar);
       window.removeEventListener("orientationchange", hideAddressBar);
+      window.removeEventListener("load", forceScroll);
+      window.removeEventListener("resize", forceScroll);
+      clearTimeout(timeoutId);
     };
   }, []);
   reactExports.useEffect(() => {
@@ -17465,13 +17475,10 @@ const App = () => {
       console.error("No campaign ID found");
     }
   }, []);
-  return (
-    // <div className="App">
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { height: "100vh", position: "relative" }, children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Carousel, { videos, campaigns }),
-      " "
-    ] })
-  );
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "App", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Carousel, { videos, campaigns }),
+    " "
+  ] });
 };
 const Popup = ({ campaigns, currentIndex, onClose }) => {
   const [currentCampaignIndex, setCurrentCampaignIndex] = reactExports.useState(currentIndex);
