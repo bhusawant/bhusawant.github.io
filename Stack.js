@@ -17432,11 +17432,19 @@ const App = () => {
   const [videos, setVideos] = reactExports.useState([]);
   const [campaigns, setCampaigns] = reactExports.useState([]);
   reactExports.useEffect(() => {
-    window.addEventListener("load", function() {
-      setTimeout(function() {
+    const hideAddressBar = () => {
+      setTimeout(() => {
         window.scrollTo(0, 1);
-      }, 1000);
-    });
+      }, 0);
+    };
+    window.addEventListener("load", hideAddressBar);
+    window.addEventListener("orientationchange", hideAddressBar);
+    return () => {
+      window.removeEventListener("load", hideAddressBar);
+      window.removeEventListener("orientationchange", hideAddressBar);
+    };
+  }, []);
+  reactExports.useEffect(() => {
     const rootElement = document.getElementById("root");
     const campaignId = rootElement.dataset.campaignId;
     const fetchVideoData = async (campaignId2) => {
