@@ -17433,12 +17433,13 @@ const App = () => {
   const [campaigns, setCampaigns] = reactExports.useState([]);
   reactExports.useEffect(() => {
     const hideAddressBar = () => {
-      setTimeout(() => {
+      if (window.pageYOffset === 0) {
         window.scrollTo(0, 1);
-      }, 0);
+      }
     };
     window.addEventListener("load", hideAddressBar);
     window.addEventListener("orientationchange", hideAddressBar);
+    setTimeout(hideAddressBar, 1e3);
     return () => {
       window.removeEventListener("load", hideAddressBar);
       window.removeEventListener("orientationchange", hideAddressBar);
