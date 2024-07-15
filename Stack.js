@@ -17439,10 +17439,11 @@ const App = () => {
     };
     window.addEventListener("load", hideAddressBar);
     window.addEventListener("orientationchange", hideAddressBar);
-    setTimeout(hideAddressBar, 1e3);
+    const timeoutId = setTimeout(hideAddressBar, 1e3);
     return () => {
       window.removeEventListener("load", hideAddressBar);
       window.removeEventListener("orientationchange", hideAddressBar);
+      clearTimeout(timeoutId);
     };
   }, []);
   reactExports.useEffect(() => {
