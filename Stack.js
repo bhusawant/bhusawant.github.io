@@ -17089,6 +17089,30 @@ html, body {
 
 
 
+.outer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-x: scroll;
+  padding: 1rem;
+  border-radius: 1rem;
+  scroll-behavior: smooth;
+  cursor: pointer;
+  /* position: absolute; */
+}
+
+
+.outer::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge, and Firefox */
+.outer {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+
 
 
 @media (max-width: 650px) and (min-width: 450px) {
@@ -17116,6 +17140,13 @@ html, body {
 
 /* Mobile responsive */
 @media (max-width: 450px) {
+
+
+
+.outer {
+        padding: 0.5rem;
+        overflow-x: auto;
+      }
 
   .down-arrow123 {
     position: absolute;
@@ -17477,10 +17508,10 @@ const App = () => {
       console.error("No campaign ID found");
     }
   }, []);
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "App", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "App", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "outer", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Carousel, { videos, campaigns }),
     " "
-  ] });
+  ] }) });
 };
 const Popup = ({ campaigns, currentIndex, onClose }) => {
   const [currentCampaignIndex, setCurrentCampaignIndex] = reactExports.useState(currentIndex);
